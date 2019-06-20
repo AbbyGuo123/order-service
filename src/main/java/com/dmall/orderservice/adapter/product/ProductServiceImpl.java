@@ -1,5 +1,6 @@
 package com.dmall.orderservice.adapter.product;
 
+import com.netflix.ribbon.proxy.annotation.Hystrix;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -19,6 +20,7 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
+    @Hystrix
     public String getProductImage() {
         return new ProductImageGetterCommand().execute();
     }
